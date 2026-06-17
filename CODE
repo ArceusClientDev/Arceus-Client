@@ -1,0 +1,52 @@
+player.onDied(function () {
+    player.say("Bro Got Slimed")
+})
+player.onChat("#arceus-bouzelouf-spam", function () {
+    for (let index = 0; index < 100; index++) {
+        player.say("BOUZELOUF")
+    }
+})
+player.onChat("#arceus-xpbloat", function () {
+    gameplay.xp(1e+30, mobs.target(ALL_PLAYERS))
+    player.say("§4XPBLOAT")
+})
+player.onChat("yara yara", function () {
+    for (let index = 0; index < 100; index++) {
+        player.say("YARA YARA")
+    }
+})
+player.onChat("#arceus-speedall", function () {
+	
+})
+player.onChat("#arceus-clearalleffects", function () {
+    mobs.clearEffect(mobs.target(ALL_PLAYERS))
+})
+player.onChat("#arceus-bouzelouf-serverwipe", function () {
+    player.say(true)
+    while (true) {
+        mobs.spawn(GOAT, pos(0, 0, 0))
+        mobs.spawn(GOAT, pos(0, 0, 0))
+        mobs.spawn(GOAT, pos(0, 0, 0))
+        player.say("§6BOUZELOUF")
+        player.say("§5BOUZELOUF")
+        player.say("§2BOUZELOUF")
+        player.say("§3BOUZELOUF")
+        player.say("§4BOUZELOUF")
+    }
+})
+player.onChat("#arceus-ultraspeedme", function () {
+    mobs.applyEffect(SPEED, mobs.target(LOCAL_PLAYER), 600, 255)
+})
+player.onChat("#arceus-speedme", function () {
+    mobs.applyEffect(SPEED, mobs.target(LOCAL_PLAYER), 600, 5)
+})
+player.onChat("#arceus-info", function () {
+    player.say("§4ARCEUS CLIENT")
+    player.say("-VERSION- ..... §3v1.00.00")
+    player.say("CODED BY PLEXPLOITS")
+    player.say("§2discord.gg/arceusclient")
+})
+player.onChat("#arceus-xpgift", function () {
+    gameplay.xp(100, mobs.target(ALL_PLAYERS))
+    player.say("100 XP GIVEN TO ALL PLAYERS")
+})
