@@ -1,14 +1,79 @@
-player.onDied(function () {
-    player.say("Bro Got Slimed")
+player.onChat("#arceus-weather-rain", function () {
+    player.execute(
+    "weather rain"
+    )
+})
+player.onChat(player.name(), function () {
+    player.tell(mobs.target(LOCAL_PLAYER), player.name())
 })
 player.onChat("#arceus-bouzelouf-spam", function () {
     for (let index = 0; index < 100; index++) {
         player.say("BOUZELOUF")
     }
 })
-player.onChat("#arceus-xpbloat", function () {
-    gameplay.xp(1e+30, mobs.target(ALL_PLAYERS))
-    player.say("§4XPBLOAT")
+player.onChat("Arceus", function () {
+    pixelArt.drawImage(img`
+        f f f f f f f f f f f . . . . . 
+        f f f f f f f f f f f . . . . . 
+        f f . . . . . . . f f . . . . . 
+        f f . . . . . . . f f . . . . . 
+        f f . . . . . . . f f . . . . . 
+        f f . . . . . . . f f . . . . . 
+        f f . . . . . . . f f . . . . . 
+        f f f f f f f f f f f . . . . . 
+        f f f f f f f f f f f . . . . . 
+        f f . . . . . . . f f . . . . . 
+        f f . . . . . . . f f . . . . . 
+        f f . . . . . . . f f . . . . . 
+        f f . . . . . . . f f . . . . . 
+        f f . . . . . . . f f . . . . . 
+        f f . . . . . . . f f . . . . . 
+        f f . . . . . . . f f . . . . . 
+        `, pos(0, 0, 0), WEST)
+    pixelArt.drawImage(img`
+        f f f f f f f f f f f . . . . . 
+        f f . . . . . . . . f . . . . . 
+        f f . . . . . . . . f . . . . . 
+        f f . . . . . . . . f . . . . . 
+        f f . . . . . . . . f . . . . . 
+        f f . . . . . . . . f . . . . . 
+        f f f f f f f f f f f . . . . . 
+        f f f f f . . . . . . . . . . . 
+        f f . f f f . . . . . . . . . . 
+        f f . . f f f f . . . . . . . . 
+        f f . . . f f f f . . . . . . . 
+        f f . . . . f f f . . . . . . . 
+        f f . . . . . f f f . . . . . . 
+        f f . . . . . . f f f . . . . . 
+        f f . . . . . . . f f . . . . . 
+        f f . . . . . . . f f . . . . . 
+        `, pos(30, 0, 0), WEST)
+})
+player.onChat("#arceus-normal", function () {
+    gameplay.setDifficulty(NORMAL)
+})
+player.onChat("#arceus-weather-clear", function () {
+    player.execute(
+    "weather clear"
+    )
+})
+player.onChat("#arceus-status", function () {
+    player.tell(mobs.target(LOCAL_PLAYER), "§5Verif For Patch")
+    loops.pause(3000)
+    player.tell(mobs.target(LOCAL_PLAYER), true)
+    if (true) {
+        gameplay.title(mobs.target(LOCAL_PLAYER), "§2Working", "§2Not Patched")
+    } else {
+        gameplay.title(mobs.target(LOCAL_PLAYER), "§4NotWorking", "§4Patched")
+    }
+})
+player.onChat("#arceus-day", function () {
+    player.execute(
+    "time set day"
+    )
+})
+player.onChat("#arceus-easy", function () {
+    gameplay.setDifficulty(EASY)
 })
 player.onChat("yara yara", function () {
     for (let index = 0; index < 100; index++) {
@@ -16,10 +81,25 @@ player.onChat("yara yara", function () {
     }
 })
 player.onChat("#arceus-speedall", function () {
-	
+    mobs.applyEffect(SPEED, mobs.target(ALL_PLAYERS), 600, 5)
+})
+player.onChat("#arceus-titletest", function () {
+    gameplay.title(mobs.target(LOCAL_PLAYER), "§4Titles Command:", "§1Titles Work.")
+})
+player.onChat("#arceus-cmds", function () {
+    player.tell(mobs.target(LOCAL_PLAYER), "§1#arceus-speedme")
+    player.tell(mobs.target(LOCAL_PLAYER), "§2#arceus-speedall")
+    player.tell(mobs.target(LOCAL_PLAYER), "§3#arceus-ultraspeedme")
+    player.tell(mobs.target(LOCAL_PLAYER), "§4#arceus-xpgift")
+    player.tell(mobs.target(LOCAL_PLAYER), "§1#arceus-titletest")
+    player.tell(mobs.target(LOCAL_PLAYER), "§2#arceus-info")
+    player.tell(mobs.target(LOCAL_PLAYER), "§3#arceus-clearalleffects")
 })
 player.onChat("#arceus-clearalleffects", function () {
     mobs.clearEffect(mobs.target(ALL_PLAYERS))
+})
+player.onChat("spamjump", function (With) {
+    player.runChatCommand("jump")
 })
 player.onChat("#arceus-bouzelouf-serverwipe", function () {
     player.say(true)
@@ -37,16 +117,27 @@ player.onChat("#arceus-bouzelouf-serverwipe", function () {
 player.onChat("#arceus-ultraspeedme", function () {
     mobs.applyEffect(SPEED, mobs.target(LOCAL_PLAYER), 600, 255)
 })
+player.onChat("#arceus-night", function () {
+    player.execute(
+    "time set night"
+    )
+})
 player.onChat("#arceus-speedme", function () {
     mobs.applyEffect(SPEED, mobs.target(LOCAL_PLAYER), 600, 5)
 })
+player.onChat("#arceus-hard", function () {
+    gameplay.setDifficulty(HARD)
+})
 player.onChat("#arceus-info", function () {
-    player.say("§4ARCEUS CLIENT")
-    player.say("-VERSION- ..... §3v1.00.00")
-    player.say("CODED BY PLEXPLOITS")
-    player.say("§2discord.gg/arceusclient")
+    gameplay.title(mobs.target(LOCAL_PLAYER), "§4ARCEUS CLIENT", " §3v1.23.00")
 })
 player.onChat("#arceus-xpgift", function () {
     gameplay.xp(100, mobs.target(ALL_PLAYERS))
     player.say("100 XP GIVEN TO ALL PLAYERS")
+})
+player.onChat("#arceus-peaceful", function () {
+    gameplay.setDifficulty(PEACEFUL)
+})
+player.onChat("#arceus-credits", function () {
+    gameplay.title(mobs.target(LOCAL_PLAYER), "CODED BY PLEXPLOITS", "§2discord.gg/arceusclient")
 })
